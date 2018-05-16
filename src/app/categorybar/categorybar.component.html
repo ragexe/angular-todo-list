@@ -1,0 +1,44 @@
+<nav class="bd-links">
+    <form class="cb-create-new " #categoryForm="ngForm" (submit)="addCategory(newCategory.value); newCategory.value=''">
+        <div class="input-group">
+            <input #newCategory
+                   type="text"
+                   class="form-control"
+                   placeholder="New category"
+                   aria-label="New category">
+
+            <div class="input-group-append">
+                <input type="submit" class="btn btn-outline-secondary" value="Add"/>
+            </div>
+        </div>
+    </form>
+
+    <div class="divider"></div>
+
+    <div class="just-padding">
+        <div *ngIf="data; else loading">
+            <div class="list-group list-group-root well">
+                <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: data }"></ng-container>
+            </div>
+
+            <div class="divider"></div>
+        </div>
+    </div>
+</nav>
+
+<ng-template #recursiveList let-list>
+    <ng-container *ngFor="let item of list">
+        <!--<a class="list-group-item text-truncate" title="{{item.name}}" routerLink="amply/{{item.id}}">{{item.name}}</a>-->
+        <div class="list-group-item text-truncate" title="{{item.name}}">
+            <a class="text-left" routerLink="amply/{{item.id}}">{{item.name}}</a>
+            <a class="font-weight-light">test</a>
+        </div>
+        <div *ngIf="item.children && item.children.length > 0" class="list-group">
+            <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.children }"></ng-container>
+        </div>
+    </ng-container>
+</ng-template>
+
+<ng-template #loading>
+    <div class="loader"></div>
+</ng-template>

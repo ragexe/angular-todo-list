@@ -1,0 +1,84 @@
+<article>
+
+
+    <h2 class="text-right">
+        <button type="button" (click)="finishAll()" class="btn btn-sm btn-light">&#9745; Finish all</button>
+
+        <span title="{{(category | async)?.name}}" class="text-capitalize text-truncate d-inline-block font-weight-light">{{(category | async)?.name}}</span>
+
+        <small class="text-muted font-weight-light">({{((tasks | async) | doneTasks)}}/{{(tasks | async)?.length}})</small>
+    </h2>
+
+    <div *ngIf="tasks | async; else loading">
+        <p *ngIf="(tasks | async)?.length == 0">No todos, yet...</p>
+        <ul class="no-bullets no-padding py-3 ">
+            <li *ngFor="let item of tasks | async">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input #updateFlag
+                                   [checked]="item.completedFlag"
+                                   class="input-group-text"
+                                   type="checkbox"
+                                   (change)="updateItem(item.key, updateFlag.checked, updatetext.value)"
+                                   aria-label="Checkbox for following task">
+                        </div>
+                    </div>
+
+                    <!-- Todo debounce -->
+                    <input #updatetext
+                           (keyup.enter)="updateItem(item.key, updateFlag.checked, updatetext.value)"
+                           (blur)="updateItem(item.key, updateFlag.checked, updatetext.value)"
+                           type="text" class="form-control"
+                           [value]="item.textDetails"
+                           ngClass="{{item.completedFlag ? 'checked' : ''}}"/>
+
+                    <div class="input-group-append">
+                        <!--<button class="btn btn-outline-secondary btn-sm"-->
+                        <!--(click)="updateItem(item.key, updatetext.value)">Save</button>-->
+
+                        <button class="btn btn-outline-danger btn-sm btn-outline-custom-color" (click)="deleteItem(item.key)">&#10060;</button>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Todo no tasks message -->
+            <!--<div *ngIf="items.length == 0">No results, try clearing filters</div>-->
+            <br>
+
+            <li>
+                <div>
+                    <!--<form #taskCreateForm="ngForm" (submit)="createTask(newTask.value); newTask.value=''">-->
+                    <!--<div class="input-group mb-3">-->
+                    <!--<input #newTask type="text" class="form-control" placeholder="New point"-->
+                    <!--aria-label="Create new task">-->
+
+                    <!--<div class="input-group-append">-->
+                    <!--<input type="submit" class="btn btn-primary btn-dark" value="Supply"/>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</form>-->
+                    <div class="input-group mb-3">
+                        <input #newitem
+                               class="form-control"
+                               placeholder="New point"
+                               type="text"
+                               (keyup.enter)="addItem(newitem.value); newitem.value=''"/>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" (click)="addItem(newitem.value); newitem.value=''">Supply
+                            </button>
+                            <button class="btn btn-dark" (click)="deleteEverything()">Delete All</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <ng-template #loading class="loader">
+        <div class="container">
+            <div class="loader"></div>
+        </div>
+    </ng-template>
+</article>
+

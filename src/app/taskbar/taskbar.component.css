@@ -1,0 +1,36 @@
+.no-bullets {
+    list-style-type: none;
+}
+
+ul.no-padding {
+    padding-start: 0;
+    -webkit-padding-start: 0;
+    -moz-padding-start: 0;
+}
+
+h2 {
+    margin-bottom: 0.85rem;
+}
+
+h2 span {
+    max-width: 24rem;
+    vertical-align: top;
+    min-height: 2.5rem;
+}
+
+.checked {
+    text-decoration:line-through;
+}
+.btn-outline-custom-color {
+    color: #dca1a2;
+    border-color: #dca1a2;
+}
+
+.btn-outline-custom-color:hover {
+    color: #fff;
+    background-color: #dca1a2;
+    border-color: #dca1a2;  }
+
+.loader {
+    margin-top: 32vh;
+}
