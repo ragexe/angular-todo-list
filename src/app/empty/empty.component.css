@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+.container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+div .title{
+    background-color: #fff;
+    color: #636b6f;
+    font-family: Raleway, sans-serif;
+    font-weight: 100;
+    font-size: 32px;
+    padding: 20px;
+    /*font-style: italic;*/
+}

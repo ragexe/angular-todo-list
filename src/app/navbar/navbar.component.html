@@ -1,0 +1,69 @@
+<header class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+
+        <img src="../../assets/check-list.svg" width="40" height="40" alt="">
+        <a routerLink="">
+            <!--<span class="navbar-brand">&#10004; {{title | uppercase}}</span>-->
+            <span class="navbar-brand">&nbsp;{{title}}</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/amply/1">Test <span class="sr-only">(current)</span></a>
+                </li>
+
+                <!--TODO del-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="#">Link</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item dropdown">-->
+                    <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"-->
+                       <!--data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                        <!--Dropdown-->
+                    <!--</a>-->
+                    <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                        <!--<a class="dropdown-item" href="#">Action</a>-->
+                        <!--<a class="dropdown-item" href="#">Another action</a>-->
+                        <!--<div class="dropdown-divider"></div>-->
+                        <!--<a class="dropdown-item" href="#">Something else here</a>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link disabled" href="#">Disabled</a>-->
+                <!--</li>-->
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+                <!--<div class="input-group-append">-->
+                <!--<button class="btn btn-outline-secondary" type="button">x</button>-->
+                <!--&lt;!&ndash;<button class="btn btn-outline-secondary" type="button">Button</button>&ndash;&gt;-->
+                <!--</div>-->
+                <!--<button class="btn btn-dark my-2 my-sm-0">Search</button>-->
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" class="form-check-input" id="allowDoneCheckBox">
+                            <label class="form-check-label" for="allowDoneCheckBox">Allow done</label>
+                        </div>
+                    </div>
+
+                    <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                           aria-describedby="basic-addon2">
+
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">&#10060;</button>
+                        <button class="btn btn-outline-primary" type="button">Find</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>

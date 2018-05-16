@@ -1,0 +1,34 @@
+<div>
+    <table class="table fixed">
+        <caption>List of &quot;{{category.name}}&quot; ({{tasksDoneNumber}}/{{tasksNumber}})</caption>
+
+        <tbody>
+            <tr *ngFor="let task of tasks">
+                <td>
+                    <input [(ngModel)]="task.completedFlag"
+                           type="checkbox"
+                           id="subscribeNews"
+                           name="subscribe"
+                           checked="{{task.completedFlag ? 'true' : ''}}" (click)="updateTask(task)">
+                </td>
+
+                <td ngClass="{{task.completedFlag ? 'checked' : ''}}">{{task.textDetails}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <form #taskCreateForm="ngForm" (submit)="createTask(newTask.value); newTask.value=''">
+                        <div class="input-group mb-3">
+                            <input #newTask type="text" class="form-control" placeholder="New point"
+                                   aria-label="Create new task">
+
+                            <div class="input-group-append">
+                                <input type="submit" class="btn btn-outline-secondary" value="Supply"/>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

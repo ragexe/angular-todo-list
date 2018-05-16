@@ -1,0 +1,15 @@
+<nav class="bd-links">
+    <form #categoryForm="ngForm" (submit)="createCategory(newCategory.value); newCategory.value=''">
+        <div class="input-group mb-3">
+            <input #newCategory type="text" class="form-control" placeholder="New category"
+                   aria-label="New category">
+            <div class="input-group-append">
+                <input type="submit" class="btn btn-outline-secondary" value="Add"/>
+            </div>
+        </div>
+    </form>
+
+    <!--<div *ngFor="let category of (categoryDTO.children)">-->
+        <!--<app-tree-node [categoryDTO]="category"></app-tree-node>-->
+    <!--</div>-->
+</nav>
